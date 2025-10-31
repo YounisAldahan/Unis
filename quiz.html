@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>الاختبارات | م. يونس الدحّان</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function checkAnswer() {
+      let answer = document.querySelector('input[name="q1"]:checked');
+      if (!answer) {
+        alert("يرجى اختيار إجابة");
+        return;
+      }
+      if (answer.value === "b") {
+        alert("إجابة صحيحة ✅");
+      } else {
+        alert("إجابة خاطئة ❌");
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>اختبر معلوماتك</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="blog.html">المقالات</a></li>
+        <li><a href="courses.html">الكورسات</a></li>
+        <li><a href="quiz.html" class="active">الاختبارات</a></li>
+        <li><a href="contact.html">تواصل</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="quiz">
+    <h2>سؤال 1:</h2>
+    <p>ما هو الهدف الأساسي من الأمن السيبراني؟</p>
+    <label><input type="radio" name="q1" value="a"> زيادة سرعة الإنترنت</label><br>
+    <label><input type="radio" name="q1" value="b"> حماية الأنظمة والبيانات من التهديدات</label><br>
+    <label><input type="radio" name="q1" value="c"> إنشاء مواقع إلكترونية</label><br>
+    <button onclick="checkAnswer()">تحقق</button>
+  </section>
+
+  <footer>
+    <p>© 2025 م. يونس الدحّان</p>
+  </footer>
+</body>
+</html>
