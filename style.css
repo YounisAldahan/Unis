@@ -6,12 +6,12 @@ html, body {
   display: flex;
   flex-direction: column;
 
-  /* خلفية شفافة ملحوظة */
-  background: linear-gradient(
-    rgba(255, 112, 67, 0.2),   /* برتقالي الهيدر بشفافية 20% */
-    rgba(13, 71, 161, 0.2)     /* أزرق الهيدر بشفافية 20% */
-  );
+  /* خلفية زجاجية شبه شفافة برتقالية داكنة */
+  background-color: rgba(255, 112, 67, 0.1); /* الشفافية تجعلها زجاجية */
+  backdrop-filter: blur(8px); /* يعطي تأثير الزجاج */
 }
+
+
 
 
 body > *:not(footer) {
@@ -91,6 +91,7 @@ button {
 button:hover {
   background: #ff7043;
 }
+
 /* =========================
    تصميم متجاوب للجوال
    ========================= */
@@ -109,10 +110,11 @@ button:hover {
     font-size: 1em;
   }
 
+  /* تعديل قائمة التنقل لتصبح عمودية */
   nav ul {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* عمودي */
+    align-items: flex-start; /* تبدأ من اليسار (عكس المركز) */
     padding: 0;
     margin: 10px 0;
   }
@@ -120,6 +122,11 @@ button:hover {
   nav ul li {
     display: block;
     margin: 8px 0;
+  }
+
+  nav ul li a {
+    display: block; /* يجعل الرابط كامل مساحة العنصر */
+    width: 100%;
   }
 
   section {
@@ -134,6 +141,39 @@ button:hover {
   }
 }
 
+/* أيقونة الهامبرغر للجوال */
+.menu-toggle {
+  display: none; /* مخفية على الكمبيوتر */
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
 
+/* عند الجوال */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
 
+  nav {
+    display: none; /* القائمة مخفية افتراضيًا */
+  }
 
+  nav.active {
+    display: block; /* تظهر عند الضغط */
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 0;
+  }
+
+  nav ul li {
+    margin: 10px 20px;
+  }
+}
